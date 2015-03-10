@@ -1,4 +1,4 @@
-package fr.istic.tpjpa.domain;
+package fr.istic.sir.domain;
 
 import java.util.List;
 import java.util.ArrayList;

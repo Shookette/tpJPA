@@ -1,4 +1,4 @@
-package fr.istic.tpjpa.domain;
+package fr.istic.sir.domain;
 
 import javax.persistence.Entity;
 

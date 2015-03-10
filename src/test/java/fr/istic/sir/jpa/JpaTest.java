@@ -1,4 +1,4 @@
-package fr.istic.tpjpa.jpa;
+package fr.istic.sir.jpa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,11 +8,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import fr.istic.tpjpa.domain.ElectronicDevice;
-import fr.istic.tpjpa.domain.Heater;
-import fr.istic.tpjpa.domain.Home;
-import fr.istic.tpjpa.domain.Person;
-import fr.istic.tpjpa.domain.SmartDevice;
+import fr.istic.sir.domain.ElectronicDevice;
+import fr.istic.sir.domain.Heater;
+import fr.istic.sir.domain.Home;
+import fr.istic.sir.domain.Person;
+import fr.istic.sir.domain.SmartDevice;
 
 public class JpaTest {
 
@@ -27,13 +27,12 @@ public class JpaTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		EntityManagerFactory factory = Persistence
-				.createEntityManagerFactory("example");
-		EntityManager manager = factory.createEntityManager();
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("mysql");
+		EntityManager em = factory.createEntityManager();
 		@SuppressWarnings("unused")
-		JpaTest test = new JpaTest(manager);
+		JpaTest test = new JpaTest(em);
 
-		EntityTransaction tx = manager.getTransaction();
+		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 
 		Home h1 = new Home("123 nous irons aux bois");
@@ -75,17 +74,18 @@ public class JpaTest {
 		h1.setDevices(devices1);
 		h4.setDevices(devices2);
 		
-		manager.persist(p1);
-		manager.persist(p2);
-		manager.persist(heat1);
-		manager.persist(heat2);
-		manager.persist(heat3);
-		manager.persist(e1);
-		manager.persist(e2);
+		em.persist(p1);
+		em.persist(p2);
+		em.persist(heat1);
+		em.persist(heat2);
+		em.persist(heat3);
+		em.persist(e1);
+		em.persist(e2);
 		
 		tx.commit();
 
-		List<Home> homesResult = manager.createQuery("SELECT h FROM Home h", Home.class).getResultList();
+		List<Home> homesResult = em.createQuery("SELECT h FROM Home h", Home.class).getResultList();
+		em.close();
 		System.out.println("num of homes : "+homesResult.size());
 		for(Home next : homesResult) {
 			System.out.println("adress : " + next.getAdress());

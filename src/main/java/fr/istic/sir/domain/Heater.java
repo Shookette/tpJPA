@@ -1,4 +1,4 @@
-package fr.istic.tpjpa.domain;
+package fr.istic.sir.domain;
 
 import javax.persistence.Entity;
 
@@ -8,6 +8,8 @@ public class Heater extends SmartDevice{
 	private int temperatureMin;
 	
 	private int temperatureMax;
+	
+	private String power;
 	
 	public Heater(){}
 	
@@ -31,6 +33,14 @@ public class Heater extends SmartDevice{
 
 	public void setTemperatureMax(int temperatureMax) {
 		this.temperatureMax = temperatureMax;
+	}
+
+	public String getPower() {
+		return power;
+	}
+
+	public void setPower(String power) {
+		this.power = power;
 	}
 	
 }
