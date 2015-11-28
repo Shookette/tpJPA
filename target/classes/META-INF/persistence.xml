@@ -16,11 +16,11 @@
    </persistence-unit>
    <persistence-unit name="mysql" transaction-type="RESOURCE_LOCAL">
       <properties>
-      		<property name="hibernate.connection.password" value="monstr-5"/>
-            <property name="hibernate.connection.username" value="user_14006680"/>
+      		<property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.connection.username" value=""/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-			<property name="hibernate.connection.url" value="jdbc:mysql://mysql.istic.univ-rennes1.fr:3306/base_14006680"/>            
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="hibernate.connection.url" value="jdbc:mysql://mysql.istic.univ-rennes1.fr:3306/"/>            
+            <property name="hibernate.hbm2ddl.auto" value="updhttps://youtu.be/2rrucWXT_JMate"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
         </properties>
